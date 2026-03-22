@@ -13,12 +13,17 @@ The cron job scans Gmail every 3 minutes for:
 - Airbnb notifications (@airbnb.com)
 - Test messages from the property owner
 
-```javascript
-// Example cron payload
-{
-  "kind": "agentTurn",
-  "message": "Scan Gmail for new Airbnb messages from last 15 minutes. For each message requiring response: categorize urgency, draft reply, send Pushover notification if urgent."
-}
+### Scripts
+
+- `scripts/scan-gmail.sh` — scan Gmail for recent Airbnb messages
+- `scripts/monitor.sh` — full loop: scan + classify urgency + send Pushover
+
+```bash
+# One-shot scan (last 15 min)
+bash scripts/monitor.sh 15
+
+# Or via Claude Code cron
+/loop 3m Scan Gmail for new Airbnb messages from last 15 minutes. For each message: categorize urgency, draft reply, send Pushover if urgent.
 ```
 
 ## Communication Style

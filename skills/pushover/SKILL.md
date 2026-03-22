@@ -9,14 +9,15 @@ Send push notifications to the property owner via the Pushover API.
 
 ## Usage
 
+Run the send script from the project root:
+
 ```bash
-curl -X POST https://api.pushover.net/1/messages.json \
-  -d "token=<APP_TOKEN>" \
-  -d "user=<USER_TOKEN>" \
-  -d "title=[Title]" \
-  -d "message=[Message body]" \
-  -d "priority=<PRIORITY>"
+bash scripts/send-pushover.sh --title "Title" --message "Body" --priority 0
 ```
+
+Args: `--title`, `--message`, `--priority` (-1, 0, 1, 2), `--retry`, `--expire`.
+
+Requires env vars: `PUSHOVER_APP_TOKEN`, `PUSHOVER_USER_TOKEN`.
 
 ## Priority Levels
 

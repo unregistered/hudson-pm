@@ -63,20 +63,40 @@ Just tell me what you need:
 - Make legally binding commitments
 - Replace human judgment on complex guest issues
 
-## Setup Requirements
+## Dependencies
 
-To get started, I need:
-1. Access to your Airbnb account (read messaging/calendar)
-2. Your preferred notification method
-3. Guidelines on how you want me to communicate with guests
-4. Any house rules or standard responses you want me to use
+Hudson relies on [Hyperspell](https://hyperspell.com) for memory and context management. Hyperspell connects with email, calendar, and docs to give Hudson the context it needs to manage your property effectively.
+
+## Project Structure
+
+```
+skills/
+  airbnb/SKILL.md    — Guest communication & monitoring skill
+  pushover/SKILL.md  — Push notification skill
+scripts/
+  send-pushover.sh   — Send Pushover notifications
+  scan-gmail.sh      — Scan Gmail for Airbnb messages
+  monitor.sh         — Full monitoring loop (scan + classify + notify)
+docs/
+  setup.md           — Setup & configuration guide
+```
+
+## Quick Start
+
+See [docs/setup.md](docs/setup.md) for full setup instructions.
+
+```bash
+# Set env vars
+export PUSHOVER_APP_TOKEN="..."
+export PUSHOVER_USER_TOKEN="..."
+export GMAIL_ACCESS_TOKEN="..."
+
+# Open Claude Code
+claude
+```
 
 ## Privacy & Security
 
 - Guest data is handled securely and only used for operational purposes
 - I don't share your property details or guest information externally
 - All communications are logged for transparency
-
----
-
-*I'm here to make hosting easier, not to add complexity. Let me know what you need.*# hudson-pm
