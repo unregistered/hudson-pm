@@ -19,7 +19,7 @@ done
 
 # Calculate epoch timestamp for N minutes ago
 if [[ "$(uname)" == "Darwin" ]]; then
-  AFTER=$(date -v-${MINUTES}M +%s)
+  AFTER=$(date -v-"${MINUTES}"M +%s)
 else
   AFTER=$(date -d "${MINUTES} minutes ago" +%s)
 fi

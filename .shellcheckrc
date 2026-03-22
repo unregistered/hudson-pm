@@ -1,0 +1,5 @@
+# Default shell dialect
+shell=bash
+
+# Allow sourcing from paths relative to script dir
+source-path=SCRIPTDIR
